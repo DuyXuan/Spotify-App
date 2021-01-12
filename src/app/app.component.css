@@ -1,0 +1,24 @@
+/* img{
+    object-fit: cover;
+    height: 15rem;
+} */
+/* .height100{
+    height: 100vh;
+} */
+/* main{
+    max-height: 100vh;
+    overflow: auto;
+} */
+
+a {
+  color: black;
+}
+a:hover {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.active {
+  background-color: dodgerblue;
+  color: white;
+}

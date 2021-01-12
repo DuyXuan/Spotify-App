@@ -1,0 +1,32 @@
+<div class="card mt-3" *ngFor="let track of topTracksList">
+  <div class="card-body">
+    <div class="row">
+      <div class="col">
+        <img
+          width="100px"
+          [src]="track.album.images[0].url"
+          class="card-img-top"
+          alt=""
+        />
+      </div>
+      <div class="col">
+        <h5 class="card-title">{{ track.name }}</h5>
+        <div class="card-text d-flex justify-content-between">
+          <div>
+            Type: {{ track.type }}<br />
+            Album type: {{ track.album.album_type }} <br />
+            Release date: {{ track.album.release_date }}
+            <div class="mt-3">
+              <audio controls *ngIf="track.preview_url">
+                <source [src]="track.preview_url" type="audio/ogg" />
+                <source [src]="track.preview_url" type="audio/mpeg" />
+                Your browser does not support the audio element.
+              </audio>
+              <div *ngIf="!track.preview_url">No Preview</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

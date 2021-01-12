@@ -1,0 +1,42 @@
+<div class="container mt-4">
+  <h1 class="text-center mb-4">spotify App</h1>
+  <header>
+    <input
+      type="text"
+      class="form-control"
+      (keyup)="search($event.target.value)"
+      placeholder="Type to search for an artists"
+    />
+  </header>
+
+  <h3 class="mb-0 mt-4">Artist</h3>
+  <main class="d-flex flex-wrap justify-content-between">
+    <div
+      class="card thumb-post mt-4"
+      style="width: 15rem"
+      *ngFor="let artist of artistsList"
+      [routerLink]="[artist.id]"
+      routerLinkActive="active"
+      (click)="clicked(topTrack)"
+    >
+      <img
+        height="250px"
+        [src]="artist.images[1]?.url"
+        class="card-img-top"
+        alt=""
+      />
+      <div class="card-body">
+        <h5 class="card-title">{{ artist.name }}</h5>
+        <div class="card-text">
+          Popularity: {{ artist.popularity }} <br />
+          Gernes: {{ artist.genres }}
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <h3 #topTrack class="mt-4">Top Tracks</h3>
+  <main class="height100 mb-4">
+    <router-outlet></router-outlet>
+  </main>
+</div>
